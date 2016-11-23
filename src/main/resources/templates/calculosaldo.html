@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<title>Calculo CPS</title>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+ <h1 class="center"><i class="large material-icons left">receipt</i>Calculo de Comision Por Saldo</h1>
+ <div class="row">
+ <form class="col s12" th:object="${solicitud}" th:action="@{/calculosaldoresultado}" method="post">
+<input type="text" name="cod" th:value="${afiliado}" readonly="readonly"/>
+<div class="input-field col s6">
+Elija su Tipo de Fondo:
+<select class="browser-default" th:field="*{tipofondo}">
+   <option value="Fondo 1">Fondo 1 (Rentabilidad: 3.5%)</option>
+   <option value="Fondo 2">Fondo 2 (Rentabilidad: 5.5%)</option>
+   <option value="Fondo 3">Fondo 3 (Rentabilidad: 8.0%)</option>
+</select>
+</div>
+<div class="input-field col s6">
+Fondo Actual:
+<input type="text" name="fondo" th:field="*{fondoactual}"/>
+</div>
+<div class="input-field col s6">
+Sueldo Actual:
+<input type="text" name="sueldo" th:field="*{sueldoactual}"/>
+</div>
+<div class="input-field col s6">
+Elija su AFP:
+<select class="browser-default" th:field="*{tipoafp}">
+   <option value="Integra">Integra (Comision por saldo: 1.20%)</option>
+   <option value="Prima">Prima (Comision por saldo: 1.25%)</option>
+   <option value="Habitat">Habitat (Comision por saldo: 1.25%)</option>
+   <option value="Profuturo">Profuturo (Comision por saldo: 1.20%)</option>
+</select>
+</div>
+<div class="input-field col s6">
+Fecha de Nacimiento:
+<input type="date" class="datepicker" name="cantmeses" th:field="*{fechanacimiento}" />
+</div>
+<div class="input-field col s12 center">
+<button class="btn waves-effect waves-light" type="submit">Calcular
+ <i class="material-icons right">perm_identity</i></button>
+</div>
+</form>
+<p th:text="${mensaje1}" style="font-size:36px"></p>
+<p th:text="${mensaje2}" style="font-size:36px"></p>
+<p th:text="${mensaje3}" style="font-size:36px"></p>
+</div>
+<table id="tablasaldo">
+        <thead>
+          <tr>
+              <th data-field="mes">Mes</th>
+              <th data-field="fondo">Fondo</th>
+              <th data-field="saldo">Saldo</th>
+              <th data-field="cps">Comision Cobrada</th>   
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="c: ${tablasaldo}">
+            <td th:text="${c.mes}"></td>
+            <td th:text="${c.fondo}"></td>
+            <td th:text="${c.saldo}"></td>
+            <td th:text="${c.cps}"></td>
+          </tr>
+        </tbody>
+      </table>
+<!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script> 
+</body>
+</html>

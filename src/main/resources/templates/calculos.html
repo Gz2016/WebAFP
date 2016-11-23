@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<title>Calculos</title>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+ <h1 class="center"><i class="large material-icons left">assignment</i>CALCULOS</h1>
+ <form>
+   <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/calculoflujo'" value="Calcular Comision x Flujo" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/calculosaldo'" value="Calcular Comision x Saldo" />
+				</div>
+	 <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/nuevoaporte'" value="Calcular Comision Mixta" />
+				</div>
+     <div class="input-field col s6 center">
+				 <input type="button" class="btn waves-effect waves-light"
+							onclick="location.href='/calculopension'" value="Calcular Pension" />
+				</div>
+	</form>
+</body>
+</html>

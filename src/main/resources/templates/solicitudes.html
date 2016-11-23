@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+<title>Lista de Afiliados</title>
+<!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+      
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+         
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+ 
+   <h1 class="center"><i class="large material-icons left">assignment_ind</i>Lista de Solicitudes</h1>
+  <table>
+        <thead>
+          <tr>
+              <th data-field="csolicitud">Codigo</th>
+              <th data-field="tipofondo">Tipo de Fondo</th>
+              <th data-field="tipoafp">Tipo de AFP</th>
+              <th data-field="fondoactual">FondoActual</th>
+              <th data-field="fechanacimiento">F.Nac.</th>
+              <th data-field="sueldoactual">Sueldo</th>
+              
+              
+              
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr th:each="s: ${solicitudes}">
+            <td th:text="${s.csolicitud}"></td>
+            <td th:text="${s.tipofondo}"></td>
+            <td th:text="${s.tipoafp}"></td>
+            <td th:text="${s.fondoactual}"></td>
+            <td th:text="${s.fechanacimiento}"></td>
+            <td th:text="${s.sueldoactual}"></td>
+          
+           </tr>
+        </tbody>
+      </table>
+ <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script> 
+</body>
+</html>

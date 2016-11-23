@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<title>Calculo Pension</title>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+ <h1 class="center"><i class="large material-icons left">receipt</i>Calculo de Pension</h1>
+ <div class="row">
+ <form class="col s12" th:object="${solicitud}" th:action="@{/calculopensionresultado}" method="post">
+ <input type="text" name="cod" th:value="${afiliado}" readonly="readonly"/>
+<div class="input-field col s6">
+Elija su Tipo de Fondo:
+<select class="browser-default" th:field="*{tipofondo}">
+   <option value="Fondo 1">Fondo 1</option>
+   <option value="Fondo 2">Fondo 2</option>
+   <option value="Fondo 3">Fondo 3</option>
+</select>
+</div>
+<div class="input-field col s6">
+Fondo Actual:
+<input type="text" name="fondo" th:field="*{fondoactual}"/>
+</div>
+<div class="input-field col s6">
+Fecha de Nacimiento:
+<input type="date" class="datepicker" name="cantmeses" th:field="*{fechanacimiento}" />
+</div>
+<div class="input-field col s12 center">
+<button class="btn waves-effect waves-light" type="submit">Calcular
+ <i class="material-icons right">perm_identity</i></button>
+</div>
+</form>
+<p th:text="${mensaje}" style="font-size:36px"></p>
+</div>
+<!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script> 
+</body>
+</html>

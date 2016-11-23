@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+<title>Lista de Afiliados</title>
+<!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+          <ul class="right hide-on-med-and-down">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+          </ul>
+          
+      <ul id="nav-mobile" class="side-nav">
+          <li><a th:href="@{/afiliados}">Afiliados</a></li>
+          <li><a th:href="@{/listoperador}">Operadores</a></li>
+          <li><a th:href="@{/listRepEmpresas}">Empresas</a></li>
+          <li><a th:href="@{/solicitudes}">Solicitudes</a></li>
+          <li><a th:href="@{/cuentas}">Cuentas</a></li>
+          <li><a th:href="@{/aportes}">Aportes</a></li>
+          <li><a th:href="@{/fondos}">Fondos</a></li>
+          <li><a th:href="@{/moras}">Moras</a></li>   
+          <li><a th:href="@{/periodosdeaporte}">Periodos</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+  <form th:action="@{/afiliadosporrangointeres}" method="post">
+   <div class="row">
+       <div class="input-field col s6">
+      De:<input type="text" id="m1" name="m1" width="100"/>
+      </div>
+       <div class="input-field col s6">
+      Hasta: <input type="text" id="m2" name="m2" width="100"/>
+  </div>
+  </div>
+  <div class="input-field col s12 center">
+          <button class="btn waves-effect waves-light" type="submit">Buscar
+             <i class="material-icons right">search</i>
+           </button>
+   </div>
+  </form>
+   <h1 class="center"><i class="large material-icons left">assignment_ind</i>Lista de Afiliados</h1>
+  <table>
+        <thead>
+          <tr>
+              <th data-field="id">Codigo</th>
+              <th data-field="dependiente">Dependiente</th>
+              <th data-field="nombres">Sueldo</th>
+              <th data-field="nombres">Nombres</th>
+              <th data-field="apellidos">Apellidos</th>
+              <th data-field="fechanacimiento">F.Nac.</th>
+              <th data-field="dni">DNI</th>
+              <th data-field="Empresa">Empresa</th>
+              <th data-field="tipofondo">Tipo Fondo</th>
+              
+              
+              
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr th:each="a: ${afiliados}">
+            <td th:text="${a.cafiliado}"></td>
+            <td th:text="${a.fdependiente}"></td>
+            <td th:text="${a.sueldo}"></td>
+            <td th:text="${a.nnombres}"></td>
+            <td th:text="${a.napellidos}"></td>
+            <td th:text="${a.dnacimiento}"></td>
+            <td th:text="${a.dni}"></td>
+            <td th:text="${a.crep_empresa.nempresa}"></td>
+            <td th:text="${a.ctipofondo.nfondo}"></td>
+            <td><a th:href="${'/verafiliado' + a.cafiliado}">Detalle</a></td>
+		     <td><a th:href="${'/editarafiliado' + a.cafiliado}">Editar</a></td>
+		     <td><a th:href="${'/cuentasporafiliado' + a.cafiliado}">Ver Cuentas</a></td>
+		     <td><a th:href="${'/eliminarafiliado' + a.cafiliado}">Borrar</a></td>
+           </tr>
+        </tbody>
+      </table>
+ <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script> 
+</body>
+</html>

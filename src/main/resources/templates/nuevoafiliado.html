@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<title>Registro Afiliado</title>
+</head>
+<body>
+
+<h1 class="center"><i class="large material-icons left">assignment_ind</i>Registro de Afiliado</h1>
+ <div class="row">
+    <form class="col s12" th:object="${afiliado}" th:action="@{/crearafiliado}" method="post">
+      <div class="input-field col s6">
+          Nombres:
+          <input placeholder="Nombres Completos" th:field="*{nnombres}"/>
+        </div>
+      <div class="input-field col s6">
+          Apellidos:
+          <input placeholder="Apellidos" th:field="*{napellidos}"/>
+        </div>
+          
+        <div class="input-field col s6">
+          DNI:
+          <input placeholder="DNI" type="text" th:field="*{dni}"/>
+        </div>
+        <div class="input-field col s6">
+          Contraseña:
+          <input type="password"  placeholder="Contraseña" th:field="*{contrasena}" />
+        </div>
+        
+     
+        <div class="input-field col s12 center">
+          <button class="btn waves-effect waves-light" type="submit">Registrar
+             <i class="material-icons right">perm_identity</i>
+         </button>
+        </div>
+        
+    </form>
+    
+    <font color="red" th:text="${mensaje}">p</font>
+  </div>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script> 
+</body>
+</html>

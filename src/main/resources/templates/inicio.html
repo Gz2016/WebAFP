@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<title>Registrar</title>
+</head>
+<body>
+<nav class="orange lighten-1" role="navigation">
+    <div class="nav-wrapper container"><a id="logo-container" th:href="@{/}" class="brand-logo">PrimaAFP</a>
+      <ul class="right hide-on-med-and-down">
+      <li><a th:href="@{/login}">Iniciar Sesion</a></li>
+      </ul>
+      <ul id="nav-mobile" class="side-nav">
+        <li><a th:href="@{/login}">Iniciar Sesion</a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
+<div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+     <div class="row center">
+      <img class="materialboxed center" height="300" width="650" src="http://portal.andina.com.pe/EDPfotografia/Thumbnail/2014/02/24/000234878W.jpg"/>
+      </div>
+      <h1 class="header center orange-text">BIENVENIDO A NUESTRO SITIO</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">¿Eres nuevo?</h5>
+      </div>
+      <div class="row center">
+        <a th:href="@{/nuevoafiliado}" id="download-button" class="btn-large waves-effect waves-light orange"><i class="material-icons">perm_identity</i>Registrarse</a>
+      </div>
+      <div class="row center">
+      <h5 class="header col s12 light">¿Ya tienes una cuenta?</h5>
+      </div>
+       <div class="row center">
+        <a th:href="@{/login}" id="download-button" class="btn-large waves-effect waves-light orange"><i class="material-icons">perm_identity</i>Iniciar Sesion</a>
+       </div>
+
+    </div>
+  </div>
+  <footer class="page-footer orange">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="white-text">Exigete Innova</h5>
+          <p class="grey-text text-lighten-4">Somos estudiantes de Ingenieria.</p>
+                <div class="footer-copyright">
+            <div class="container">
+            © 2016 Finanzas e Ingeniería Económica
+            <a class="grey-text text-lighten-4 right" href="http://www.prima.com.pe/wcm/portal/PrimaAFP/inicio">Más Informacion aqui</a>
+            </div>
+          </div>
+         </div>
+       </div>
+        </div>
+   </footer>
+  <!--  Scripts-->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="js/materialize.js"></script>
+  <script src="js/init.js"></script>
+</body>
+</html>
